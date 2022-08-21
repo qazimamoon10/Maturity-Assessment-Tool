@@ -1,0 +1,46 @@
+
+
+
+<nav class="navbar navbar-expand-lg  bg-dark" style="background-color: #333333;">
+  <div class="container-fluid">
+      <a href="home" class="navbar-brand"> <img src="https://res.cloudinary.com/giricloud/image/upload/v1650438108/PicsArt_04-20-12.30.14_gjlakm.png" height="28" alt="CoolBrand"> </a>
+      <div class="navbar-nav ms-right"> <a href="Home" class="nav-item nav-link" style="color: #ffe600;">Home</a></div>
+    </div>
+</nav>
+
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+    <h2 class="active"> Login</h2>
+
+
+    <!-- Icon -->
+    <div class="fadeIn first">
+      <img src="http://cdn.onlinewebfonts.com/svg/img_311846.png" id="icon" alt="User Icon" />
+    </div>
+
+    <form class="form-signin" #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+      <div class="container-fluid">
+        <!-- <h2 class="form-signin-heading">Login</h2> -->
+        <div *ngIf="invalidLogin" class="alert alert-danger">Invalid username or password.</div>
+        <br/>
+
+        <input type="email" id="emailid" name="emailid" ngModel class="form-control" placeholder="User Name" required autofocus>
+        <br/>
+
+        <input type="password" id="password" name="password" ngModel class="form-control" placeholder="Password" required>
+        <br/>
+        <!-- <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button> -->
+      </div>
+
+      <div class="text-cented">
+        <input style="text-align: center;  background-color: #ffe600;" type="submit" class="fadeIn fourth" value="Log In">
+      </div>
+      <a href="/createuser" class="nav-link underlineHover">Create A  New Account</a>
+    </form>
+
+
+
+
+  </div>
+</div>

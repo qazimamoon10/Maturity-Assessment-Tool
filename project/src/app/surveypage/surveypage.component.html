@@ -1,0 +1,92 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+  <title>Bootstrap 5 Modal</title>
+  <style>
+      .modal-header {
+          background: #F7941E;
+          color: #fff;
+      }
+
+      .required:after {
+          content: "*";
+          color: red;
+      }
+  </style>
+
+</head>
+<body>
+
+
+
+
+
+
+
+  <div class="container mb-5">
+
+    <div class="row">
+      <h1 style="text-align: center;">SURVEY</h1>
+      <h3 style="text-align: left; color: red;">Answer According to your work </h3>
+      <div  *ngFor="let question of questions">
+        <div class="col-12">
+          <p class="fw-bold">{{question.question}}</p><br>
+          <div  class="form-check"> <input class="form-check-input" type="checkbox" (change)="checkCheckBoxvalue($event)">
+            <label class="form-check-label" for="defaultCheck1">
+              {{question.answer}}
+            </label>
+                  </div><br>
+      </div>
+      </div>
+
+
+        <div class="col-12">
+            <div class="d-flex justify-content-center"> <button type="button" routerLink="/SurveyreportComponent/{{counter}}"class="btn btn-primary px-4 py-2 fw-bold" data-bs-toggle="modal" data-bs-target="#myModall"> Submit</button> </div>
+        </div>
+    </div>
+  </div>
+
+          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
+</body>
+</html> -->
+<nav class="navbar navbar-expand-lg" style="background-color: #333333;">
+  <div class="container-fluid">
+      <a class="navbar-brand"> <img src="https://res.cloudinary.com/giricloud/image/upload/v1650438108/PicsArt_04-20-12.30.14_gjlakm.png" height="28" alt="CoolBrand"> </a>
+      <div class="navbar-nav ms-right"> <a  class="nav-item nav-link" style="color: #ffe600;">{{role}}</a></div>
+      <div class="navbar-nav ms-auto">  <button type="button" class="btn btn-dark" style="background-color: #333333; border: 0px ; color:#ffe600;" (click)="logout()">LOGOUT</button></div>
+   </div>
+</nav>
+<br>
+<h2 style="padding-left: 45rem;"> SURVEY</h2>
+<h4 style="padding-left: 13rem; color: red;">If Yes, check the box 'Yes' else the answer by default will be taken to be 'No'</h4>
+<div class="container mt-5">
+  <div class="d-flex justify-content-center row">
+      <div class="col-md-10 col-lg-10">
+          <div class="border">
+
+
+              <div  *ngFor="let question of questions">
+              <div class="question bg-white p-3 border-bottom">
+                  <div class="d-flex flex-row align-items-center question-title">
+                      <h3 class="text-danger">Q.</h3>
+                      <h3 class="mt-1 ml-2">{{question.question}}</h3>
+                  </div>
+                  <div class="ans ml-2">
+                      <label class="radio"> <input type="checkbox" name="brazil" (change)="checkCheckBoxvalue($event)"> <span>{{question.answer}}</span>
+                      </label>
+                  </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="d-flex flex-row justify-content-between align-items-center p-3 bg-white"><button class="btn btn-primary border-success align-items-center btn-success" style="background-color: #ffe600;" routerLink="/SurveyreportComponent/{{counter}}" type="button">SUBMIT<i class="fa fa-angle-right ml-2"></i></button></div>
+      </div>
+
+  </div>
+</div>

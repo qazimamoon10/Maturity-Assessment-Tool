@@ -1,0 +1,102 @@
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="background-color: #333333;">
+  <div class="container-fluid">
+      <a class="navbar-brand"> <img src="https://res.cloudinary.com/giricloud/image/upload/v1650438108/PicsArt_04-20-12.30.14_gjlakm.png" height="28" alt="CoolBrand"> </a>
+      <div class="navbar-nav ms-right"> <a href="Home" class="nav-item nav-link" style="color:#ffe600;">Home</a></div>
+    </div>
+</nav>
+
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+    <h2 class="active"> Sign Up </h2>
+
+    <!-- Icon -->
+
+
+    <!-- Create Form -->
+    <form #createform="ngForm" (ngSubmit)="createform.form.valid && addemp()"  noValidate>
+      <div class="panel panel-primary">
+          <div class="panel-heading">
+              <h3 class="panel-title"></h3>
+          </div>
+          <div class="panel-body">
+            <!-- firstName -->
+              <div class="form-group">
+                <input type="text"  class="fadeIn first" id="firstName" placeholder="FirstName" #firstName="ngModel"
+                [(ngModel)]="regarry.firstName" name="firstName"  minlength="4" required >
+               <div class="errorcol" *ngIf="(firstName.touched || createform.submitted) && firstName.errors?.['required']">FirstName is Required</div>
+               <div class="errorcol"  *ngIf="(firstName.touched  || createform.submitted) && firstName.errors?.['minlength']">Required 4 characters</div>
+              </div>
+
+              <!-- lastName -->
+              <div class="form-group">
+                <input type="text"  class="fadeIn second" placeholder="LastName" #lastName="ngModel"
+                [(ngModel)]="regarry.lastName" name="lastName" minlength="4" required >
+                <div class="errorcol"  *ngIf="(lastName.touched || createform.submitted) && lastName.errors?.['required']">LastName is Required</div>
+                <div class="errorcol"  *ngIf="(lastName.touched  || createform.submitted) && lastName.errors?.['minlength']">Required 4 characters</div>
+                </div>
+
+
+
+             <!-- Gender -->
+
+              <div class="form-group fadeIn third ">
+                    <input type="radio" name="gender" value="male" required>Male
+                    <input type="radio" name="gender" value="female"  required>Female
+              </div>
+
+              <!-- Dropdown box-->
+              <div class="form-group ">
+                  <select id="UserType" name="UserType" class="selbox fadeIn fourth"    #UserType="ngModel"  [(ngModel)]="regarry.userType" [(ngModel)]='ngSelect' required>
+                    <option value="1">Select Your UserType</option>
+                    <option value="Project Manager">Project Manager</option>
+                    <option value="Team Member">Team Member</option>
+                  </select>
+                  <div class="errorcol" *ngIf="(UserType.touched  || createform.submitted) && UserType.errors?.['required']">Select UserType</div>
+              </div>
+
+
+                <!-- email -->
+                <div class="form-group">
+                  <input type="email"  class="fadeIn fourth" placeholder="EmailID"  #emailid="ngModel"
+                   [(ngModel)]="regarry.emailid" name="emailid" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
+
+                  <div class="errorcol"  *ngIf="(emailid.touched || createform.submitted) && emailid.errors?.['required']">EmailID is Required</div>
+                   <div class="errorcol"  *ngIf="(emailid.touched || createform.submitted) && emailid.errors?.['pattern']">Enter Vaild Email</div>
+              </div>
+
+              <!-- password -->
+              <div class="form-group">
+                <input type="password"  class="fadeIn fourth"  placeholder="Password" #password="ngModel"
+                [(ngModel)]="regarry.password" name="password" pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,16}$" required>
+                <div class="errorcol"  *ngIf="(password.touched || createform.submitted) && password.errors?.['required']">Password is Required</div>
+                <div class="errorcol"  *ngIf="(password.touched || createform.submitted) && password.errors?.['pattern']">
+                <ul style="text-align: left;">
+                  <li>Length should be 8-16 characters</li>
+                  <li>Password Must Have numbers letters and special characters!</li> </ul>
+                </div>
+              </div>
+
+               <!-- cnfpassword -->
+               <div class="form-group">
+                <input type="password"  class="fadeIn fourth"  placeholder=" Confirm Password" #cnfpassword="ngModel"
+                [(ngModel)]="regarry.cnfpassword" name="cnfpassword" required>
+                <div class="errorcol"  *ngIf="(cnfpassword.touched || createform.submitted) && cnfpassword.errors?.['required']"> Confirm Passwordis Required</div>
+                <div class="errorcol"  *ngIf="(cnfpassword.touched || createform.submitted) && regarry.cnfpassword !== regarry.password">
+                Password Doesn't Match
+                </div>
+              </div>
+
+
+          </div>
+          <div class="text-cented">
+            <input style="text-align: center; " type="submit" class="fadeIn fourth" value="Create User" ngsubmit="login">
+          </div>
+      </div>
+  </form>
+
+
+  </div>
+</div>
+

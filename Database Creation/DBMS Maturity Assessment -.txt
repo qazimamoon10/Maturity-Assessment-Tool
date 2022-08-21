@@ -1,0 +1,57 @@
+create database MaturityAssessmenttool
+
+CREATE TABLE users
+( user_id int PRIMARY KEY identity,
+FirstName varchar(25) ,
+LastName varchar(25) ,
+userType varchar(25) ,
+Emailid varchar(25) ,
+password varchar(20)
+  );
+
+create table ProjectFunction(
+Function_id int PRIMARY KEY identity,
+FunctionName varchar(25)
+)
+
+create table Project(
+Project_id int PRIMARY KEY identity,
+Projectname varchar(25),
+ProjectDescription varchar(50),
+Function_id int FOREIGN KEY REFERENCES ProjectFunction(Function_id)
+)
+
+create table ProjectMembers(
+ProjectMember_id int PRIMARY KEY identity,
+Project_id int FOREIGN KEY REFERENCES Project(Project_id),
+user_id  int FOREIGN KEY REFERENCES users(user_id )
+)
+
+create table Survey(
+Survey_id int PRIMARY KEY identity,
+Surveyname varchar(25),
+Survey_Start_date date,
+Survey_End_date date,
+Project_id int FOREIGN KEY REFERENCES Project(Project_id)
+)
+
+create table Questions(
+Question_id int PRIMARY KEY identity,
+Question varchar(250),
+Function_id int FOREIGN KEY REFERENCES ProjectFunction(Function_id)
+)
+
+
+create table Answers(
+Question_id int FOREIGN KEY REFERENCES Questions(Question_id),
+Answer_id int PRIMARY KEY identity,
+Answer varchar(25),
+Answer_Weightage int
+)
+
+ create table UserSurvey(
+User_Survey_id int PRIMARY KEY identity,
+Question_id int FOREIGN KEY REFERENCES Questions(Question_id),
+Answer_id int FOREIGN KEY REFERENCES Answers(Answer_id),
+Survey_id int FOREIGN KEY REFERENCES Survey(Survey_id),
+)
